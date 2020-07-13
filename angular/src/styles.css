@@ -1,4 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "~alertifyjs/build/css/alertify.min.css";
+@import "~alertifyjs/build/css/themes/bootstrap.min.css";
+
 
 body {
     padding-top: 5px;

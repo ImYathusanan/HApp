@@ -1,3 +1,4 @@
+import { AlertifyService } from './../../services/alertify.service';
 import { Doctor } from './../../shared/models/doctor';
 import { DoctorServiceService } from './../../services/doctor-service.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,7 @@ export class UpdateDoctorComponent implements OnInit {
   doctor: Doctor;
 
   constructor(private doctorService: DoctorServiceService,private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router, private alertify: AlertifyService) { }
 
   ngOnInit(): void {
 
@@ -33,7 +34,8 @@ export class UpdateDoctorComponent implements OnInit {
 
   updateDoctor() {
     this.doctorService.updateDoctor(this.id, this.doctor).subscribe(data => {
-      console.log(data);
+      //console.log(data);
+      this.alertify.success("Doctor Updated!");
       this.getAllDoctors();
     }, error => {
       console.log(error);
@@ -41,7 +43,7 @@ export class UpdateDoctorComponent implements OnInit {
   }
 
   getAllDoctors() {
-    this.router.navigate["/doctors/list"];
+    this.router.navigate(["doctors/list"]);
   }
 
 

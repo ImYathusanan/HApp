@@ -1,4 +1,4 @@
-import { IDoctor } from './../../shared/models/doctor';
+import { Doctor } from './../../shared/models/doctor';
 import { DoctorServiceService } from './../../services/doctor-service.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -16,7 +16,7 @@ export class DoctorDetailComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.doctorService.getById(1).subscribe((data: IDoctor) => {
+    this.doctorService.getById(1).subscribe((data: Doctor) => {
       this.id = data.id;
       this.name = data.name;
     })

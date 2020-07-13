@@ -1,3 +1,4 @@
+import { AlertifyService } from './services/alertify.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -24,7 +25,9 @@ import { UpdateDoctorComponent } from './doctors/update-doctor/update-doctor.com
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AlertifyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

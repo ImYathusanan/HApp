@@ -1,3 +1,4 @@
+import { AlertifyService } from './../../services/alertify.service';
 import { Doctor } from './../../shared/models/doctor';
 import { DoctorServiceService } from './../../services/doctor-service.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,7 @@ export class DoctorFormComponent implements OnInit {
 
   doctor: Doctor = new Doctor();
 
-  constructor(private doctorService: DoctorServiceService, private router: Router) { }
+  constructor(private doctorService: DoctorServiceService, private router: Router, private alertify: AlertifyService) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +21,7 @@ export class DoctorFormComponent implements OnInit {
   save() {
     this.doctorService.createDoctor(this.doctor).subscribe(data => {
       this.doctor = new Doctor();
-      console.log(data);
+      this.alertify.success("Doctor Registered!");
       this.getAllDoctors();
     }, error => {
       console.log(error);

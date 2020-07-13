@@ -1,3 +1,4 @@
+import { AlertifyService } from './../../services/alertify.service';
 import { DoctorServiceService } from './../../services/doctor-service.service';
 import { Doctor } from './../../shared/models/doctor';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,8 @@ export class DoctorComponent implements OnInit {
 
   doctors: Doctor[] = [];
 
-  constructor(private doctorService: DoctorServiceService, private router: Router) { }
+  constructor(private doctorService: DoctorServiceService, private router: Router,
+     private alert: AlertifyService) { }
 
   ngOnInit(): void {
     this.getDoctorsList();
@@ -26,7 +28,7 @@ export class DoctorComponent implements OnInit {
 
   deleteDoctor(id: number) {
     this.doctorService.deleteDoctor(id).subscribe( data => {
-      console.log(data);
+      //console.log(data);
       this.getDoctorsList();
     }, error => {
       console.log(error);
